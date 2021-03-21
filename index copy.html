@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>갤러리만들기 210320</title>
+  <style>
+@import url('https://fonts.googleapis.com/css2?family=Pangolin&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap');
+
+*{
+  margin:0;
+  padding:0;
+  overflow-x:hidden;
+}
+
+.header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 20px 0 0 0;
+  width: 100vw;
+}
+
+#Home > img {
+  width: 90%;
+  height: auto;
+  margin: 0 4vw;  
+}
+
+.logo >  img {
+  width: 20vw;
+  height: auto;
+  font-size: 0;
+}
+
+.title {
+  width: 75%;
+  text-align: center;
+  font-family: 'Pangolin', cursive;
+  font-size: 2em;
+}
+
+#tabMenu {
+  display: flex;
+  flex-flow: wrap;
+}
+
+#tabMenu  input[type="radio"] {
+  display:none;  /* 라디오 버튼 감춤 */ 
+}
+#tabMenu label {  /* 탭 제목 스타일 */ 
+  justify-content: center;
+  margin: 5px auto 5px auto;  /* 마진 */ 
+  padding: 0 25px;  /* 패딩 */
+  color:#aaa;  /* 글자 색 */ 
+  font-family: 'Do Hyeon', sans-serif;
+  font-size: 2vw;
+
+}
+#tabMenu label:hover {  /* 마우스 오버했을 때 탭 제목 스타일 */
+  color:#222;  
+  cursor:pointer;
+}
+#tabMenu input:checked + label {  /* 활성화된 탭 제목 스타일 */ 
+  color:black;
+}
+
+.tabContent {  /* 탭 내용 스타일 */
+  display:none; 
+}
+
+
+#tab1:checked ~ #Home,
+#tab2:checked ~ #forSight,
+#tab3:checked ~ #forFood {
+  display:block;
+}
+
+.container {
+  display: flex;
+  width: 100vw;
+  height: auto;
+  flex-wrap: wrap;
+}
+
+
+.food {
+  display: flex;
+  width: 100vw;
+  height: auto;
+  flex-wrap: wrap;
+  font-size: 0;
+  margin: 0 4vw ;  
+}
+
+.food > a > img {
+  justify-content: center;
+  align-content: center;
+  width: 30vw;
+}
+
+.sight {
+  display: flex;
+  width: 92vw;
+  height: auto;
+  flex-wrap: wrap;
+  margin: 0 4vw ;  
+  font-size: 0;
+}
+
+.sight > a > img {
+  justify-content: center;
+  align-content: center;
+  width: 30vw;
+}
+
+hr {
+  margin: 1vh 0;
+  background-color:#72cdda;
+  height: 2px;
+  border: 0px;
+}
+
+.moreView {
+  width: 100%;
+  height: 10vh;
+  text-align: center;
+  font-size: 2vh;
+}
+
+.moreView> a {
+  text-decoration: none;
+}
+
+.moreView > a:hover {
+  color: red;
+  font-weight: bold;
+}
+
+.footer{
+  text-align: end;
+  margin: 0 4vw 2vw 2vw;
+}
+
+#changeMode {
+  display: none;
+}
+
+
+
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">
+      <img src="images/logo.png">
+    </div>
+    
+    <div class="title">
+      <div class="text">
+      <hr>
+      GALLERY
+      </div>
+      <hr>
+    </div>
+
+    <div id="changeMode">
+      <h4>모드전환</h4>
+    </div>
+  </div>
+
+  <div class="container">
+    <div id="tabMenu">
+      <input type="radio" id="tab1" name="tabs" checked>
+      <label for="tab1">HOME</label>
+
+      <input type="radio" id="tab2" name="tabs">
+      <label for="tab2">볼거리</label>
+
+      <input type="radio" id="tab3" name="tabs">
+      <label for="tab3">먹거리</label>        
+    <div id="Home" class="tabContent">
+        <img src="images/home.JPG" alt="home" width="90%" height="auto">
+    </div>
+
+    <div id="forSight" class="tabContent">
+      <div class="sight">
+        <a href="#"><img src="images/10.JPG" alt="갤러리10"></a>
+        <a href="#"><img src="images/11.jpg" alt="갤러리11"></a>
+        <a href="#"><img src="images/12.jpg" alt="갤러리12"></a>
+        <a href="#"><img src="images/13.jpg" alt="갤러리13"></a>
+        <a href="#"><img src="images/14.jpg" alt="갤러리14"></a>
+        <a href="#"><img src="images/15.jpg" alt="갤러리15"></a>
+        <a href="#"><img src="images/16.jpg" alt="갤러리16"></a>
+        <a href="#"><img src="images/17.jpg" alt="갤러리17"></a>
+        <a href="#"><img src="images/18.jpg" alt="갤러리18"></a>
+        <div class="moreView">
+          <a href="#">더보기▼</a>
+        </div>
+      </div>
+    </div>
+
+      <div id="forFood" class="tabContent">
+        <div class="food">
+          <a href="#"><img src="images/1.JPG" alt="갤러리1"></a>
+          <a href="#"><img src="images/2.jpg" alt="갤러리2"></a>
+          <a href="#"><img src="images/3.jpg" alt="갤러리3"></a>
+          <a href="#"><img src="images/4.jpg" alt="갤러리4"></a>
+          <a href="#"><img src="images/5.jpg" alt="갤러리5"></a>
+          <a href="#"><img src="images/6.jpg" alt="갤러리6"></a>
+          <a href="#"><img src="images/7.jpg" alt="갤러리7"></a>
+          <a href="#"><img src="images/8.jpg" alt="갤러리8"></a>
+          <a href="#"><img src="images/9.jpg" alt="갤러리9"></a>
+          <div class="moreView">
+            <a href="#">더보기▼</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer">
+    <hr>
+    ＃contact : sehwa_xi (insta)
+  </div>
+  
+</body>
+</html>
