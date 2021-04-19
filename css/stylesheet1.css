@@ -35,6 +35,21 @@
   font-size: 2em;
 }
 
+#changeMode {
+  width: 10vw;
+  margin: 0 4vw 0 0;
+}
+
+ #night_day {
+  width: 50px;
+  height: 50px;
+  float: right;
+  border: 1px solid #333;
+  border-radius: 50%;
+  outline:none;
+  background-color : white;
+}
+
 #tabMenu {
   display: flex;
   flex-flow: wrap;
@@ -53,11 +68,11 @@
 
 }
 #tabMenu label:hover {  /* 마우스 오버했을 때 탭 제목 스타일 */
-  color:#222;  
+  font-weight: 900;  
   cursor:pointer;
 }
 #tabMenu input:checked + label {  /* 활성화된 탭 제목 스타일 */ 
-  color:black;
+  font-weight :900;
 }
 
 .tabContent {  /* 탭 내용 스타일 */
@@ -79,7 +94,7 @@
 }
 
 
-.food {
+.items {
   display: flex;
   width: 92vw;
   height: auto;
@@ -88,26 +103,17 @@
   margin: 0 4vw ;  
 }
 
-.food > a > img {
+ .items> a > img {
   justify-content: center;
   align-content: center;
   width: 30vw;
 }
 
-.sight {
-  display: flex;
-  width: 92vw;
-  height: auto;
-  flex-wrap: wrap;
-  margin: 0 4vw ;  
-  font-size: 0;
+.items > a > img:hover {
+  opacity: 0.7;
 }
 
-.sight > a > img {
-  justify-content: center;
-  align-content: center;
-  width: 30vw;
-}
+
 
 hr {
   margin: 1vh 0;
@@ -117,7 +123,7 @@ hr {
 }
 
 .moreView {
-  width: 100%;
+  width: 100vw;
   height: 10vh;
   text-align: center;
   font-size: 2vh;
@@ -137,8 +143,6 @@ hr {
   margin: 0 4vw 2vw 2vw;
 }
 
-#changeMode {
-  display: none;
-}
+
 
 
