@@ -44,10 +44,10 @@
   width: 50px;
   height: 50px;
   float: right;
-  border: 1px solid #333;
+  border: 1px solid black;
   border-radius: 50%;
   outline:none;
-  background-color : white;
+  /* background-color : white; */
 }
 
 #tabMenu {
@@ -103,16 +103,37 @@
   margin: 0 4vw ;  
 }
 
- .items> a > img {
-  justify-content: center;
-  align-content: center;
+ .items img {
   width: 30vw;
 }
 
-.items > a > img:hover {
+.items img:hover {
   opacity: 0.7;
 }
 
+.lightbox-overlay {
+  opacity: 0;
+  pointer-events: none; /*이 id에 링크가 할당되어 있어도 연결되지 않도록 함*/
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.6);
+  transition: opacity .3s ease-in;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* .lightbox-overlay img {
+  height: 20vw;
+} */
+
+  .lightbox-overlay.visible {
+    opacity: 1;
+    pointer-events: auto; /* 링크 이벤트를 다시 연결되도록 살려줌 */
+  }
 
 
 hr {
