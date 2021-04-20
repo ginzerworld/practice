@@ -8,11 +8,14 @@
   <link rel="stylesheet" href="css/stylesheet1.css">
 </head>
 <body>
+
+
+
   <div class="header">
     <div class="logo">
       <img src="images/logo.png">
     </div>
-    
+  
     <div class="title">
       <div class="text">
       <hr>
@@ -20,26 +23,9 @@
       </div>
       <hr>
     </div>
-
     <div id="changeMode">
-      <input id="night_day" type="button" value="night" onclick="
-      var target = document.querySelector('body');
-      if(this.value === 'night'){
-      target.style.backgroundColor='black';
-      target.style.color='white';
-      this.value = 'day';
-      this.style.backgroundColor='black';
-      this.style.color='white';
-      } else {
-        target.style.backgroundColor = 'white';
-        target.style.color= ' black';
-        this.value = 'night';
-        this.style.backgroundColor='white';
-        this.style.color='black';
-      }
-      ">
+      <input id="night_day" type="button" value="night" onclick="modeChange()">
   
-
     </div>
   </div>
 
@@ -54,49 +40,95 @@
       <input type="radio" id="tab3" name="tabs">
       <label for="tab3">먹거리</label>        
     <div id="Home" class="tabContent">
-        <img src="images/home.JPG" alt="home" width="90%" height="auto">
+        <img src="images/home.JPG" data-lightbox="images/1.jp" alt="home" width="90%" height="auto">
     </div>
 
     <div id="forSight" class="tabContent">
       <div class="items">
-        <a href="#"><img src="images/10.JPG" alt="갤러리10"></a>
-        <a href="#"><img src="images/11.jpg" alt="갤러리11"></a>
-        <a href="#"><img src="images/12.jpg" alt="갤러리12"></a>
-        <a href="#"><img src="images/13.jpg" alt="갤러리13"></a>
-        <a href="#"><img src="images/14.jpg" alt="갤러리14"></a>
-        <a href="#"><img src="images/15.jpg" alt="갤러리15"></a>
-        <a href="#"><img src="images/16.jpg" alt="갤러리16"></a>
-        <a href="#"><img src="images/17.jpg" alt="갤러리17"></a>
-        <a href="#"><img src="images/18.jpg" alt="갤러리18"></a>
-        <div class="moreView">
-          <a href="#">더보기▼</a>
-        </div>
+        <img src="images/10.jpg" data-lightbox="images/10.jpg" alt="갤러리10">
+        <img src="images/11.jpg" data-lightbox="images/11.jpg" alt="갤러리11">
+        <img src="images/12.jpg" data-lightbox="images/12.jpg" alt="갤러리12">
+        <img src="images/13.jpg" data-lightbox="images/13.jpg" alt="갤러리13">
+        <img src="images/14.jpg" data-lightbox="images/14.jpg" alt="갤러리14">
+        <img src="images/15.jpg" data-lightbox="images/15.jpg" alt="갤러리15">
+        <img src="images/16.jpg" data-lightbox="images/16.jpg" alt="갤러리16">
+        <img src="images/17.jpg" data-lightbox="images/17.jpg" alt="갤러리17">
+        <img src="images/18.jpg" data-lightbox="images/18.jpg" alt="갤러리18">
+
+        <!-- <div class="moreView">
+          <a hre="#">더보기▼</a>
+        </div> -->
       </div>
     </div>
 
       <div id="forFood" class="tabContent">
         <div class="items">
-          <a href="#"><img src="images/1.JPG" alt="갤러리1"></a>
-          <a href="#"><img src="images/2.jpg" alt="갤러리2"></a>
-          <a href="#"><img src="images/3.jpg" alt="갤러리3"></a>
-          <a href="#"><img src="images/4.jpg" alt="갤러리4"></a>
-          <a href="#"><img src="images/5.jpg" alt="갤러리5"></a>
-          <a href="#"><img src="images/6.jpg" alt="갤러리6"></a>
-          <a href="#"><img src="images/7.jpg" alt="갤러리7"></a>
-          <a href="#"><img src="images/8.jpg" alt="갤러리8"></a>
-          <a href="#"><img src="images/9.jpg" alt="갤러리9"></a>
-          <div class="moreView">
-            <a href="#">더보기▼</a>
-          </div>
+          <img src="images/1.jpg" data-lightbox="images/1.jpg" alt="갤러리1">
+          <img src="images/2.jpg" data-lightbox="images/2.jpg" alt="갤러리2">
+          <img src="images/3.jpg" data-lightbox="images/3.jpg" alt="갤러리3">
+          <img src="images/4.jpg" data-lightbox="images/4.jpg" alt="갤러리4">
+          <img src="images/5.jpg" data-lightbox="images/5.jpg" alt="갤러리5">
+          <img src="images/6.jpg" data-lightbox="images/6.jpg" alt="갤러리6">
+          <img src="images/7.jpg" data-lightbox="images/7.jpg" alt="갤러리7">
+          <img src="images/8.jpg" data-lightbox="images/8.jpg" alt="갤러리8">
+          <img src="images/9.jpg" data-lightbox="images/9.jpg" alt="갤러리9">
+
+
+          <!-- <div class="moreView">
+            <a hre="#">더보기▼</a>
+          </div> -->
         </div>
       </div>
     </div>
+  </div>
+
+  <div class="lightbox-overlay">
+    <img src="" alt="lightbox image" title="Click anywhere to close" id="lightbox-image" />
   </div>
 
   <div class="footer">
     <hr>
     ＃contact : sehwa_xi (insta)
   </div>
+<script>
+
+
+ var img = document.querySelectorAll('.items img')
+ lightbox = document.querySelector('.lightbox-overlay'),
+ lightboxImg = lightbox.querySelector('img');
+for(var i=0; i < img.length; i++){
+    img[i].addEventListener('click', function() {
+      var imgNewSrc = this.getAttribute('data-lightbox');
+
+      //lightboxImg의 src의 값을 큰이미지의 경로로 지정
+        lightboxImg.setAttribute('src',imgNewSrc);
+      //lightbox보이도록 
+      lightbox.classList.add('visible');
+ });
+}
+//lightbox를 클릭하면 다시 사라지도록
+lightbox.addEventListener('click', function(){
+  this.classList.remove('visible');
+});
+
+var target = document.querySelector('body');
+function modeChange() {
+      if(document.querySelector('#night_day').value === 'night'){
+      target.style.backgroundColor='#333';
+      target.style.color='white';
+      document.querySelector('#night_day').value = 'day';
+      document.querySelector('#night_day').style.backgroundColor='#333';
+      document.querySelector('#night_day').style.color='white';
+      } else {
+        target.style.backgroundColor = 'white';
+        target.style.color= 'black';
+        document.querySelector('#night_day').value = 'night';
+        document.querySelector('#night_day').style.backgroundColor='white';
+        document.querySelector('#night_day').style.color='black';
+      }
+};
+
+</script>
   
 </body>
 </html>
