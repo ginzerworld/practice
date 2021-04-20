@@ -41,13 +41,13 @@
 }
 
  #night_day {
-  width: 50px;
-  height: 50px;
+  width: 5vw;
+  height: 5vw;
   float: right;
   border: 1px solid black;
   border-radius: 50%;
   outline:none;
-  /* background-color : white; */
+  
 }
 
 #tabMenu {
@@ -105,6 +105,7 @@
 
  .items img {
   width: 30vw;
+  height: auto;
 }
 
 .items img:hover {
@@ -126,9 +127,9 @@
   align-items: center;
 }
 
-/* .lightbox-overlay img {
+.lightbox-overlay img {
   height: 20vw;
-} */
+}
 
   .lightbox-overlay.visible {
     opacity: 1;
